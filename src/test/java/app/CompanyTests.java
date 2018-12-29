@@ -95,8 +95,11 @@ public class CompanyTests {
         company.setManagerFor(employee3, manager);
         company.setManagerFor(employee4, manager);
         company.setManagerFor(employee5, manager);
-        Employee managerOfIhorFox = company.getManagerOf("Ihor Fox");
-        assert managerOfIhorFox != null;
-        assert managerOfIhorFox.equals(employee2);
+        List<Employee> subordinates = company.getManagerSubordinateByEmployee(employee1);
+        assert subordinates.contains(employee1);
+        assert subordinates.contains(employee2);
+        assert subordinates.contains(employee3);
+        assert subordinates.contains(employee4);
+        assert subordinates.contains(employee5);
     }
 }
